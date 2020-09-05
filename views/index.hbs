@@ -1,0 +1,74 @@
+{{!-- <style>
+    html { 
+        background: url('https://cdn.hipwallpaper.com/i/14/99/bnF5Ma.png') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style> --}}
+<div class="row">
+    <div class="col-md-12">
+        <h1><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> {{serviceName}}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <h3>
+          What is this?
+        </h3>
+
+        <p>
+            <a href="https://gmindonusa.com">GMI</a> Mail is a mail server that runs ONLY for internal use.
+        </p>
+
+        <p>
+            <a class="btn btn-primary btn-md" href="https://gmindonusa.com" role="button"><span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Website</a>
+            
+            <a class="btn btn-success btn-md" href="/account/login" role="button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a>
+
+            <a class="btn btn-success btn-md" href="/account/create" role="button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Create</a>
+        </p>
+
+        <p>
+            This mail server using strong authentication with using One Time Passcode - SMS based, so it will required phone number for registration
+        </p>
+
+        <h3>Features</h3>
+        <ul>
+            <li>
+                Generated email address is a real address and can be used with any mail client. IMAP is handled by GMI Mail service, MX messages are received by Haraka and outgoing messages are delivered by ZoneMTA.
+            </li>
+            <li>
+                Dots in usernames and addresses are ignored. <em>user.name@example.com</em> is the same as <em>username@example.com</em>
+            </li>
+            <li>
+                Labels in incoming email addresses are ignored. <em>user+label@example.com</em> is the same as <em>user@example.com</em>
+            </li>
+            <li>
+                Moving messages to and out of the Junk Mail folder raises a junk status change event for that message. This is currently not used though
+            </li>
+            <li>
+                Enabling OTP SMS based 2FA disables account password for IMAP, POP3 and SMTP
+            </li>
+            <li>
+                Application Specific Password comes with automatically generated mobileconfig file for iOS/OSX mail applications
+            </li>
+            <li>
+                Incoming messages are checked against user defined filters. Matching messages can be marked as seen or flagged. Messages can be moved to specific mailbox folder. Messages tagged as spam are moved to Junk Mail folder.
+            </li>
+            <li>
+                Messages can be forwarded to another email address or uploaded to an URL account wide (all incoming messages are forwarded) or filter based (only messages matching specific filter are forwarded)
+            </li>
+            <li>
+                All authentication related events are logged and shown in the account security page. This behavior will change in the future as mail clients generate a lot of noise (re-authenticating after short period of time). Such logins should be joined somehow into
+                single events.
+            </li>
+            <li>
+                This web service also makes use of the built-in GPG encryption feature of WildDuck where all cleartext messages are encrypted with user's public key before stored to disk. The encryption step is applied after filtering step so you could still filter messages by body text.
+            </li>
+        </ul>
+    </div>
+</div>

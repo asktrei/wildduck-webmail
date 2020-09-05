@@ -1,0 +1,142 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Account</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            {{> accountmenu}}
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="overview">
+
+                <p>&nbsp;</p>
+
+
+                <form method="post" action="/account/profile">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+                    <fieldset>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">General</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
+                                    <div class="input-group">
+                                        <p class="form-control-static">{{values.username}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{#if errors.firstName}} has-error{{/if}}">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="eg. John" value="{{values.firstName}}">
+                                    {{#if errors.firstName}}
+                                        <span class="help-block">{{errors.firstName}}</span>
+                                    {{/if}}
+                                </div>
+                                <div class="form-group{{#if errors.middleName}} has-error{{/if}}">
+                                    <label for="middleName">Middle Name</label>
+                                    <input type="text" class="form-control" name="middleName" id="middleName" placeholder="eg. John" value="{{values.middleName}}">
+                                    {{#if errors.middleName}}
+                                        <span class="help-block">{{errors.middleName}}</span>
+                                    {{/if}}
+                                </div>
+                                <div class="form-group{{#if errors.lastName}} has-error{{/if}}">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="eg. John" value="{{values.lastName}}">
+                                    {{#if errors.lastName}}
+                                        <span class="help-block">{{errors.lastName}}</span>
+                                    {{/if}}
+                                </div>
+                                <div class="form-group{{#if errors.birthDate}} has-error{{/if}}">
+                                    <label for="birthDate">Birth Date</label>
+                                    <p class="form-control-static">{{values.birthDate}}</p>
+                                    {{#if errors.birthDate}}
+                                        <span class="help-block">{{errors.birthDate}}</span>
+                                    {{/if}}
+                                </div>
+                                <div class="form-group{{#if errors.lastName}} has-error{{/if}}">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="eg. John" value="{{values.lastName}}">
+                                    {{#if errors.lastName}}
+                                        <span class="help-block">{{errors.lastName}}</span>
+                                    {{/if}}
+                                </div>
+                                <div class="form-group{{#if errors.phoneCountryID}} has-error{{/if}}">
+                                    <label for="phoneCountryID">Region</label>
+                                    <div id="phoneCountryID" class="bfh-selectbox bfh-countries" data-country="ID" data-flags="true" data-name="phoneCountryID"></div>
+                                    {{!-- <select class="form-control bfh-countries" data-country="US" data-flags="true"></select> --}}
+                                    {{!-- <input type="text" class="form-control" name="phoneCountryID" id="phoneCountryID" placeholder="&quot;+62&quot;" value="{{values.phoneCountryID}}" pattern="^[+][0-9]{1,3}$" required> --}}
+                                    {{#if errors.phoneCountryID}}
+                                        <span class="help-block">{{errors.phoneCountryID}}</span>
+                                    {{/if}}
+                                </div>
+                                <div class="form-group{{#if errors.phone}} has-error{{/if}}">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="eg. &quot;0888111222&quot;" value="{{values.phone}}" pattern="^[0-9]{8,11}$" required>
+                                    {{#if errors.phone}}
+                                        <span class="help-block">{{errors.phone}}</span>
+                                    {{/if}}
+                                </div>
+
+                                {{!-- <div class="form-group{{#if errors.spamLevel}} has-error{{/if}}">
+                                    <label for="name">Spam detection level</label>
+                                    <select class="form-control" name="spamLevel">
+                                        <option value="">
+                                            -- Select --
+                                        </option>
+                                        {{#each spamLevels}}
+                                            <option value="{{value}}" {{#if selected}}selected{{/if}}>
+                                                {{description}}
+                                            </option>
+                                        {{/each}}
+                                    </select>
+
+                                    {{#if errors.spamLevel}}
+                                        <span class="help-block">{{errors.spamLevel}}</span>
+                                    {{/if}}
+                                </div> --}}
+
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Message forwarding</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <p>
+                                    Leave the following fields blank if you do not wish to forward all incoming emails
+                                </p>
+
+                                <div class="form-group{{#if errors.targets}} has-error{{/if}}">
+                                    <label for="targets">Forward incoming messages to:</label>
+                                    <input type="text" class="form-control" name="targets" id="targets" placeholder="user@example.com" value="{{values.targets}}">
+                                    {{#if errors.targets}}
+                                        <span class="help-block">{{errors.targets}}</span>
+                                    {{/if}}
+                                    <span class="help-block">Use comma separated list of addresses for multiple recipients</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Update</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "name": "gmi-webmail",
+    "description": "GMI Mail for GMI",
+    "main": "index.js",
+    "authors": ["Zaid Yasyaf"],
+    "license": "MIT",
+    "homepage": "https://mail.gmindonusa.com",
+    "private": true,
+    "ignore": ["**/.*", "node_modules", "bower_components", "public/components/", "test", "tests"],
+    "dependencies": {
+        "DOMPurify": "dompurify#^1.0.2",
+        "jquery": "*",
+        "fetch": "2.0.4",
+        "moment": "*",
+        "handlebars": "*",
+        "bootstrap-daterangepicker": "*",
+        "summernote": "*",
+        "event-source-polyfill": "*",
+        "underscore": "*",
+        "promise-polyfill": "^7.0.0",
+        "favico.js": "^0.3.10"
+    }
+}
